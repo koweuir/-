@@ -3,7 +3,7 @@ from abc import ABC, abstractmethod
 
 class PicturesDAO(ABC):
     @abstractmethod
-    def get_all_pictures(self):
+    def get_all_picturesById(self, plant_id):
         pass
 
     @abstractmethod
