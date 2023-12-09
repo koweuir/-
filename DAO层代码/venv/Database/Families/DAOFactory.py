@@ -17,10 +17,10 @@ class DAOFactory:
             threadlocal=None,  # 本线程独享值得对象，用于保存链接对象，如果链接对象被重置。
             driver='{SQL Server}',
             host='127.0.0.1',
-            port=3389,
+            port=1433,
             user='sa',
             password='123456',
-            database='education',
+            database='DBCD',
         )
         # 从连接池获取连接对象
         conn = POOL.connection()
