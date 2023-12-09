@@ -7,5 +7,5 @@ class GeneraDAO(ABC):
         pass
 
     @abstractmethod
-    def create_genera(self, genera):
+    def create_genus(self, genera):
         pass
