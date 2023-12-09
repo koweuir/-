@@ -3,9 +3,11 @@ from abc import ABC, abstractmethod
 
 class PestControlStrategiesDAO(ABC):
     @abstractmethod
-    def get_all_pestControlStrategies(self):
+    def create_pestControlStrategies(self, strategy):
         pass
 
     @abstractmethod
-    def create_pestControlStrategies(self, strategy):
+    def get_all_pestControlStrategies(self, plant_id):
         pass
+
+
