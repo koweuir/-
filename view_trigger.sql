@@ -1,4 +1,4 @@
-﻿USE test
+USE test
 --园林植物基本信息管理业务
 
 --视图1：详细植物信息
@@ -258,58 +258,47 @@ GO
 
 --园林植物分类管理
 
---插入种进行判断
--- 检查属是否存在
 GO
-CREATE TRIGGER CheckGenusExists
+CREATE TRIGGER trg_specics
 ON Species
 FOR INSERT
 AS
 BEGIN
-    -- 检查插入的种对应的属是否存在
-    IF NOT EXISTS (
-        SELECT 1
-        FROM Genera
-        WHERE genus_id = (SELECT genus_id FROM inserted)
-    )
+    IF EXISTS (SELECT 1 FROM inserted i INNER JOIN Species s ON i.species_name = s.species_name)
     BEGIN
-        -- 属不存在，提示要先插入属
-        RAISERROR ('请先插入对应的属', 16, 1)
+        RAISERROR('该种已存在，无法插入', 16, 1)
         ROLLBACK TRANSACTION
-        RETURN
     END
-END;
+END
+GO
 
 GO
--- 使用示例
-INSERT INTO Species (genus_id, species_name) VALUES (1, 'Species 1');
-
-
---插入属进行判断
--- 检查科是否存在
-GO
-CREATE TRIGGER CheckFamilyExists
+CREATE TRIGGER trg_genera
 ON Genera
 FOR INSERT
 AS
 BEGIN
-    -- 检查插入的种对应的属是否存在
-    IF NOT EXISTS (
-        SELECT 1
-        FROM Families
-        WHERE family_id = (SELECT family_id FROM inserted)
-    )
+    IF EXISTS (SELECT 1 FROM inserted i INNER JOIN Genera g ON i.genus_name = g.genus_name)
     BEGIN
-        -- 科不存在，提示要先插入科
-        RAISERROR ('请先插入对应的科', 16, 1)
+        RAISERROR('该属已存在，无法插入', 16, 1)
         ROLLBACK TRANSACTION
-        RETURN
     END
-END;
+END
+GO
 
 GO
--- 使用示例
-INSERT INTO Genera (family_id, genus_name) VALUES (1, 'Genera 1')
+CREATE TRIGGER trg_family
+ON Families
+FOR INSERT
+AS
+BEGIN
+    IF EXISTS (SELECT 1 FROM inserted i INNER JOIN Families f ON i.family_name = f.family_name)
+    BEGIN
+        RAISERROR('该科已存在，无法插入', 16, 1)
+        ROLLBACK TRANSACTION
+    END
+END
+GO
 
 
 
