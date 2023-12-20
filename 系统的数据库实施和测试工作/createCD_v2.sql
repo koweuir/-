@@ -1,6 +1,6 @@
 USE test
 
--- ´´½¨¿Æ±í
+-- åˆ›å»ºç§‘è¡¨
 CREATE TABLE Families (
     family_id INT IDENTITY(1,1) PRIMARY KEY,
     family_name VARCHAR(255),
@@ -9,7 +9,7 @@ CREATE TABLE Families (
     update_time DATETIME
 );
 
--- ´´½¨Êô±í
+-- åˆ›å»ºå±è¡¨
 CREATE TABLE Genera (
     genus_id INT IDENTITY(1,1) PRIMARY KEY,
     family_id INT,
@@ -20,7 +20,7 @@ CREATE TABLE Genera (
     update_time DATETIME
 );
 
--- ´´½¨ÖÖ±í
+-- åˆ›å»ºç§è¡¨
 CREATE TABLE Species (
     species_id INT IDENTITY(1,1) PRIMARY KEY,
     genus_id INT,
@@ -31,7 +31,7 @@ CREATE TABLE Species (
     update_time DATETIME
 );
 
--- ´´½¨Ö²Îï±í
+-- åˆ›å»ºæ¤ç‰©è¡¨
 CREATE TABLE Plants (
     plant_id INT IDENTITY(1,1) PRIMARY KEY,
     species_id INT,
@@ -49,7 +49,7 @@ CREATE TABLE Plants (
     update_time DATETIME
 );
 
--- ´´½¨ÅäÍ¼±í
+-- åˆ›å»ºé…å›¾è¡¨
 CREATE TABLE Pictures (
     picture_id INT IDENTITY(1,1) PRIMARY KEY,
     plant_id INT,
@@ -63,7 +63,7 @@ CREATE TABLE Pictures (
     update_time DATETIME
 );
 
--- ´´½¨Ñø»¤ÈÎÎñ±í
+-- åˆ›å»ºå…»æŠ¤ä»»åŠ¡è¡¨
 CREATE TABLE MaintenanceTasks (
     task_id INT IDENTITY(1,1) PRIMARY KEY,
     task_name VARCHAR(255),
@@ -78,7 +78,7 @@ CREATE TABLE MaintenanceTasks (
     update_time DATETIME
 );
 
---´´½¨²¡³æº¦±í
+--åˆ›å»ºç—…è™«å®³è¡¨
 CREATE TABLE Pests (
     pest_id INT IDENTITY(1,1) PRIMARY KEY,
     pest_name VARCHAR(255),
@@ -87,7 +87,7 @@ CREATE TABLE Pests (
     update_time DATETIME
 );
 
--- ´´½¨²¡³æº¦·ÀÖ¹²ßÂÔ±í
+-- åˆ›å»ºç—…è™«å®³é˜²æ­¢ç­–ç•¥è¡¨
 CREATE TABLE PestControlStrategies (
     strategy_id INT IDENTITY(1,1) PRIMARY KEY,
     pest_id INT,
@@ -99,7 +99,7 @@ CREATE TABLE PestControlStrategies (
     other_info VARCHAR(255)
 );
 
--- ´´½¨¼à²â±í
+-- åˆ›å»ºç›‘æµ‹è¡¨
 CREATE TABLE Monitoring (
     monitoring_id INT IDENTITY(1,1) PRIMARY KEY,
     monitoring_time DATETIME,
@@ -113,7 +113,7 @@ CREATE TABLE Monitoring (
     update_time DATETIME
 );
 
--- ´´½¨Òì³£¼à²â¼ÇÂ¼±í
+-- åˆ›å»ºå¼‚å¸¸ç›‘æµ‹è®°å½•è¡¨
 CREATE TABLE AbnormalMonitoringRecords (
     record_id INT IDENTITY(1,1) PRIMARY KEY,
     monitoring_id INT,
@@ -123,7 +123,7 @@ CREATE TABLE AbnormalMonitoringRecords (
     remark VARCHAR(255)
 );
 
--- ´´½¨Ô±¹¤±í
+-- åˆ›å»ºå‘˜å·¥è¡¨
 CREATE TABLE Employees (
     employee_id INT IDENTITY(1,1) PRIMARY KEY,
     employee_name VARCHAR(255),
@@ -132,7 +132,7 @@ CREATE TABLE Employees (
     other_info VARCHAR(255)
 );
 
--- ²¡³æº¦-Ö²Îï¶ÔÓ¦±í
+-- ç—…è™«å®³-æ¤ç‰©å¯¹åº”è¡¨
 CREATE TABLE Pests_Plants (
     pest_id INT,
 	FOREIGN KEY (pest_id) REFERENCES Pests(pest_id),
