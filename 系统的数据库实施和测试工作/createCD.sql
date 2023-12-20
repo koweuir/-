@@ -1,6 +1,6 @@
 USE CD
 
--- 创建科表
+-- 麓麓陆篓驴脝卤铆
 CREATE TABLE Families (
     family_id INT IDENTITY(1,1) PRIMARY KEY,
     family_name VARCHAR(255),
@@ -9,7 +9,7 @@ CREATE TABLE Families (
     update_time DATETIME
 );
 
--- 创建属表
+-- 麓麓陆篓脢么卤铆
 CREATE TABLE Genera (
     genus_id INT IDENTITY(1,1) PRIMARY KEY,
     family_id INT,
@@ -20,7 +20,7 @@ CREATE TABLE Genera (
     update_time DATETIME
 );
 
--- 创建种表
+-- 麓麓陆篓脰脰卤铆
 CREATE TABLE Species (
     species_id INT IDENTITY(1,1) PRIMARY KEY,
     genus_id INT,
@@ -33,7 +33,7 @@ CREATE TABLE Species (
     update_time DATETIME
 );
 
--- 创建植物表
+-- 麓麓陆篓脰虏脦茂卤铆
 CREATE TABLE Plants (
     plant_id INT IDENTITY(1,1) PRIMARY KEY,
     species_id INT,
@@ -48,7 +48,7 @@ CREATE TABLE Plants (
     update_time DATETIME
 );
 
--- 创建配图表
+-- 麓麓陆篓脜盲脥录卤铆
 CREATE TABLE Pictures (
     picture_id INT IDENTITY(1,1) PRIMARY KEY,
     plant_id INT,
@@ -62,7 +62,7 @@ CREATE TABLE Pictures (
     update_time DATETIME
 );
 
--- 创建养护任务表
+-- 麓麓陆篓脩酶禄陇脠脦脦帽卤铆
 CREATE TABLE MaintenanceTasks (
     task_id INT IDENTITY(1,1) PRIMARY KEY,
     task_name VARCHAR(255),
@@ -77,7 +77,7 @@ CREATE TABLE MaintenanceTasks (
     update_time DATETIME
 );
 
---创建病虫害表
+--麓麓陆篓虏隆鲁忙潞娄卤铆
 CREATE TABLE Pests (
     pest_id INT IDENTITY(1,1) PRIMARY KEY,
     pest_name VARCHAR(255),
@@ -86,7 +86,7 @@ CREATE TABLE Pests (
     update_time DATETIME
 );
 
--- 创建病虫害防止策略表
+-- 麓麓陆篓虏隆鲁忙潞娄路脌脰鹿虏脽脗脭卤铆
 CREATE TABLE PestControlStrategies (
     strategy_id INT IDENTITY(1,1) PRIMARY KEY,
     pest_id INT,
@@ -100,7 +100,7 @@ CREATE TABLE PestControlStrategies (
     other_info VARCHAR(255)
 );
 
--- 创建监测表
+-- 麓麓陆篓录脿虏芒卤铆
 CREATE TABLE Monitoring (
     monitoring_id INT IDENTITY(1,1) PRIMARY KEY,
     monitoring_time DATETIME,
@@ -115,7 +115,7 @@ CREATE TABLE Monitoring (
     update_time DATETIME
 );
 
--- 创建异常监测记录表
+-- 麓麓陆篓脪矛鲁拢录脿虏芒录脟脗录卤铆
 CREATE TABLE AbnormalMonitoringRecords (
     record_id INT IDENTITY(1,1) PRIMARY KEY,
     monitoring_id INT,
@@ -125,7 +125,7 @@ CREATE TABLE AbnormalMonitoringRecords (
     remark VARCHAR(255)
 );
 
--- 创建员工表
+-- 麓麓陆篓脭卤鹿陇卤铆
 CREATE TABLE Employees (
     employee_id INT IDENTITY(1,1) PRIMARY KEY,
     employee_name VARCHAR(255),
